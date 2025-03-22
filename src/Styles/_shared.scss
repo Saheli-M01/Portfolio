@@ -1,7 +1,7 @@
 @use "./variables" as v;
 //glass-background
 %glass-background {
-  background-color: rgba(56, 55, 55, 0.095);
+  background-color: rgba(119, 119, 119, 0.219);
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
@@ -21,26 +21,38 @@
   border-radius: 0;
   font-weight: 600;
   transition: v.$transition-fast;
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  
+  &:hover, &:focus, &:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
 }
-%button-solid{
+%button-solid {
   @extend %button-style;
-  background-color: v.$btn-bg;
-  color: v.$btn-text;
-  &:hover {
-    background-color: v.$btn-hover-bg;
-    box-shadow: v.$btn-hover-shadow;
+  background-color: v.$primary-yellow !important;
+  color: v.$darker-bg !important;
+  
+  &:hover, &:focus, &:active {
+    background-color: v.$secondary-yellow !important;
+    transform: translateY(-2px);
+  
   }
 }
 
-%button-outline{
+%button-outline {
   @extend %button-style;
-  border: 2px solid v.$primary-blue;
-  color: v.$primary-blue;
-  background: transparent;
+  border: 2px solid v.$primary-yellow !important;
+  color: v.$primary-yellow !important;
+  background: transparent !important;
 
-  &:hover {
-    background-color: v.$primary-blue;
-    color: v.$btn-text;
+  &:hover, &:focus, &:active {
+
+    color: v.$primary-yellow !important;
+    transform: translateY(-2px);
+
   }
 }
 
