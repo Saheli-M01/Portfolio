@@ -1,0 +1,46 @@
+@use "./variables" as v;
+//glass-background
+%glass-background {
+  background-color: rgba(56, 55, 55, 0.095);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 10;
+}
+//slide-up-animation
+%slide-up-animation {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp 0.8s ease-out forwards;
+}
+%button-style {
+  padding: 0.8rem 2rem;
+  border-radius: 0;
+  font-weight: 600;
+  transition: v.$transition-fast;
+}
+%button-solid{
+  @extend %button-style;
+  background-color: v.$btn-bg;
+  color: v.$btn-text;
+  &:hover {
+    background-color: v.$btn-hover-bg;
+    box-shadow: v.$btn-hover-shadow;
+  }
+}
+
+%button-outline{
+  @extend %button-style;
+  border: 2px solid v.$primary-blue;
+  color: v.$primary-blue;
+  background: transparent;
+
+  &:hover {
+    background-color: v.$primary-blue;
+    color: v.$btn-text;
+  }
+}
+
