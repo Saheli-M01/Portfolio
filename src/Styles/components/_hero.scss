@@ -8,19 +8,60 @@
   position: relative;
   overflow: hidden;
   padding: 5rem 7rem;
+  
+
+  &__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+
+
+  &__particles {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: v.$primary-yellow;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.5;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(v.$primary-yellow, 0.5);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      background: v.$primary-yellow;
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0.3;
+    }
+  }
 
   &__content {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-   
-
     position: relative;
     z-index: 10;
     margin-top: 2rem;
     margin-bottom: 2rem;
     backdrop-filter: blur(20px);
- 
+    padding: 3rem;
+    border-radius: 20px;
+    background: rgba(18, 18, 18, 0.5);
+    border: 1px solid rgba(v.$primary-yellow, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   }
 
   &__title {
@@ -34,13 +75,34 @@
       color: v.$text-gray;
       margin-bottom: 0.5rem;
       text-shadow: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: v.$primary-yellow;
+        transition: width 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
     }
 
     .name {
       display: block;
       color: v.$primary-yellow;
       font-weight: bold;
-
+      position: relative;
+      display: inline-block;
+      text-shadow: 0 0 10px rgba(v.$primary-yellow, 0.3);
     }
 
     .title {
@@ -48,6 +110,8 @@
       color: v.$text-light;
       font-size: 2rem;
       text-shadow: none;
+      font-weight: 500;
+      letter-spacing: 1px;
     }
   }
 
@@ -55,7 +119,10 @@
     font-size: 1.2rem;
     color: v.$text-gray;
     margin-bottom: 2rem;
-    line-height: 1.6;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 1rem;
+    border-left: 2px solid rgba(v.$primary-yellow, 0.2);
   }
 
   &__cta {
@@ -65,10 +132,54 @@
 
     .btn-solid {
       @extend %button-solid;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
     }
 
     .btn-outline {
       @extend %button-outline;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(v.$primary-yellow, 0.1),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      &:hover::before {
+        left: 100%;
+      }
     }
   }
 
@@ -78,11 +189,9 @@
     min-height: 400px;
   }
 
-
-
   .profile-image {
     width: 400px;
-    height:400px;
+    height: 400px;
     margin: 0 auto;
     border-radius: 50%;
     background-color: v.$dark-bg;
@@ -92,7 +201,14 @@
     position: relative;
     z-index: 1;
     overflow: hidden;
-   
+    border: 2px solid rgba(v.$primary-yellow, 0.2);
+    box-shadow: 0 0 30px rgba(v.$primary-yellow, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 40px rgba(v.$primary-yellow, 0.2);
+    }
 
     .profile-img {
       width: 100%;
@@ -122,12 +238,19 @@
       opacity: 0.1;
       border-radius: 50%;
       filter: blur(5px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.15;
+        transform: scale(1.1);
+      }
 
       &-1 {
         width: 100px;
         height: 100px;
         top: 20%;
         left: 10%;
+        animation: float 6s ease-in-out infinite;
       }
 
       &-2 {
@@ -135,6 +258,7 @@
         height: 150px;
         top: 40%;
         right: 5%;
+        animation: float 8s ease-in-out infinite;
       }
 
       &-3 {
@@ -142,6 +266,7 @@
         height: 80px;
         bottom: 20%;
         left: 20%;
+        animation: float 7s ease-in-out infinite;
       }
 
       &-4 {
@@ -149,8 +274,18 @@
         height: 120px;
         bottom: 50%;
         right: 20%;
+        animation: float 9s ease-in-out infinite;
       }
     }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
@@ -164,3 +299,90 @@
     transform: scale(1.1);
   }
 }
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translate(15px, -20px) scale(1.2);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(0, -40px) scale(1);
+    opacity: 0.5;
+  }
+  75% {
+    transform: translate(-15px, -20px) scale(0.8);
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    padding: 3rem 2rem;
+
+    &__content {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    &__title {
+      font-size: 2.8rem;
+
+      .greeting {
+        font-size: 1.2rem;
+      }
+
+      .title {
+        font-size: 1.6rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 1.1rem;
+      padding-left: 0;
+      border-left: none;
+      border-bottom: 2px solid rgba(v.$primary-yellow, 0.2);
+      padding-bottom: 1rem;
+    }
+
+    &__cta {
+      justify-content: center;
+    }
+
+    .profile-image {
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+
+    &__title {
+      font-size: 2.2rem;
+
+      .greeting {
+        font-size: 1rem;
+      }
+
+      .title {
+        font-size: 1.3rem;
+      }
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+
+    .profile-image {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
