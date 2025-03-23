@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
+import logo from '../assets/SM.png';
 
 import '../styles/components/_navbar.scss';
 
@@ -7,7 +8,7 @@ const CustomNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { href: '#home', label: 'Home' },
+ 
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
@@ -36,6 +37,10 @@ const CustomNavbar = () => {
     <div className="navbar-wrapper">
       <Navbar expand="lg" className="custom-navbar">
         <Container>
+          <Navbar.Brand href="#home" className="navbar-brand">
+            <img src={logo} alt="SM Logo" className="navbar-logo" />
+          </Navbar.Brand>
+
           <div className="d-lg-none">
             <Navbar.Toggle 
               aria-controls="navbar-nav" 
