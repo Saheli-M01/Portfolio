@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { motion as Motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
@@ -36,28 +36,28 @@ const Project = () => {
 
   return (
     <section className="projects">
-      <Container>
-        <Motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="section-title"
-        >
-          <h1>My Projects</h1>
-          <p>Check out some of my recent work</p>
-        </Motion.div>
+      <Motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="section-title"
+      >
+        <h1>My Projects</h1>
+        <p>Check out some of my recent work</p>
+      </Motion.div>
 
-        <div className="projects__grid">
-          {projects.map((project, index) => (
-            <Motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="projects__card"
-            >
+      <div className="projects__grid">
+        {projects.map((project, index) => (
+          <Motion.div
+            key={project.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="projects__card"
+          >
+            <div className="projects__card-wrapper">
               <div className="projects__card-image">
                 <img src={project.image} alt={project.title} />
                 <div className="projects__card-overlay">
@@ -80,10 +80,10 @@ const Project = () => {
                   ))}
                 </div>
               </div>
-            </Motion.div>
-          ))}
-        </div>
-      </Container>
+            </div>
+          </Motion.div>
+        ))}
+      </div>
     </section>
   );
 };

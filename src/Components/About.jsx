@@ -11,6 +11,7 @@ import "../styles/components/_about.scss";
 const About = () => {
   const features = [
     {
+      number: "01",
       icon: faCode,
       title: "Clean Code",
       description:
@@ -18,6 +19,7 @@ const About = () => {
     },
    
     {
+      number: "02",
       icon: faUsers,
       title: "Collaborative",
       description:
@@ -68,14 +70,17 @@ const About = () => {
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                     >
-                      <FontAwesomeIcon
-                        icon={feature.icon}
-                        className="about__feature-icon"
-                      />
-                      <h3 className="about__feature-title">{feature.title}</h3>
-                      <p className="about__feature-description">
-                        {feature.description}
-                      </p>
+                      <span className="about__feature-number">{feature.number}</span>
+                      <div className="about__feature-content">
+                        <FontAwesomeIcon
+                          icon={feature.icon}
+                          className="about__feature-icon"
+                        />
+                        <h3 className="about__feature-title">{feature.title}</h3>
+                        <p className="about__feature-description">
+                          {feature.description}
+                        </p>
+                      </div>
                     </Motion.div>
                   ))}
                 </div>

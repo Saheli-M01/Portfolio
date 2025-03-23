@@ -1,17 +1,32 @@
 @use "../variables" as v;
 @use "../shared" as *;
 
+.about-section {
+  padding: 6rem 0;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+
+}
+
 .about {
   &__content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 3rem;
   }
 
   &__text {
     color: v.$text-gray;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    
+    p {
+      margin-bottom: 1.5rem;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__features {
@@ -21,32 +36,89 @@
   }
 
   &__feature {
-    @extend %glass-background;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(18, 18, 18, 0.3));
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem;
-    border-radius: 8px;
-    transition: v.$transition-fast;
+    border-radius: 12px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      padding: 1px;
+      background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(v.$primary-yellow, 0.3),
+        transparent
+      );
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+    }
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+      &::before {
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(v.$primary-yellow, 0.6),
+          transparent
+        );
+      }
+
+      
+    }
+
+    &-number {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: rgba(v.$primary-yellow, 0.5);
+      line-height: 1;
+      transition: all 0.3s ease;
+    }
+
+    &-content {
+      position: relative;
+      z-index: 1;
     }
 
     &-icon {
       font-size: 2.5rem;
-      color: v.$primary-yellow;
-      margin-bottom: 1rem;
+      color: rgba(v.$primary-yellow, 0.9);
+      margin-bottom: 1.2rem;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     &-title {
       color: v.$text-light;
-      font-size: 1.25rem;
-      font-weight: bold;
+      font-size: 1.4rem;
+      font-weight: 600;
       margin-bottom: 1rem;
+      letter-spacing: 0.5px;
     }
 
     &-description {
       color: v.$text-gray;
       line-height: 1.6;
+      font-size: 1.1rem;
     }
   }
 
@@ -57,10 +129,39 @@
     border-radius: 8px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
+}
 
-  @media (max-width: 992px) {
+@media (max-width: 992px) {
+  .about-section {
+    padding: 4rem 0;
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
+
+  .about {
     &__content {
       grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    &__feature {
+      padding: 1.5rem;
+
+      &-number {
+        font-size: 3rem;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      &-title {
+        font-size: 1.2rem;
+      }
+
+      &-description {
+        font-size: 1rem;
+      }
     }
   }
 }

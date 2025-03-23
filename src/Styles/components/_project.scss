@@ -4,17 +4,29 @@
 .projects {
   padding: 6rem 0;
   position: relative;
+  background: rgba(18, 18, 18, 0.8);
+  backdrop-filter: blur(10px);
+  min-height: 100vh;
+  overflow: hidden;
 
   &::after {
     content: '';
     position: absolute;
     width: 4px;
-    background: rgba(v.$primary-yellow, 0.3);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      rgba(v.$primary-yellow, 0.5) 10%,
+      rgba(v.$primary-yellow, 1) 50%,
+      rgba(v.$primary-yellow, 0.5) 90%,
+      transparent
+    );
     top: 12rem;
     bottom: 4rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
+    box-shadow: 0 0 15px rgba(v.$primary-yellow, 0.3);
   }
 
   .section-title {
@@ -22,6 +34,12 @@
     margin-bottom: 4rem;
     position: relative;
     z-index: 2;
+    color: v.$text-light;
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
 
     p {
       color: v.$text-gray;
@@ -32,7 +50,7 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    gap: 4rem 12rem;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 4rem;
@@ -40,60 +58,114 @@
   }
 
   &__card {
-    @extend %glass-background;
     position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: v.$transition-fast;
+
+    &-wrapper {
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(18, 18, 18, 0.3));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      backdrop-filter: blur(5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 12px;
+        padding: 1px;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(v.$primary-yellow, 0.3),
+          transparent
+        );
+        -webkit-mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        mask: 
+          linear-gradient(#fff 0 0) content-box, 
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+      }
+    }
 
     &::before {
       content: '';
       position: absolute;
+      width: 6rem;
       height: 3px;
-      background: rgba(v.$primary-yellow, 0.3);
-      top: 50px;
+      background: linear-gradient(
+        90deg,
+        rgba(v.$primary-yellow, 0.5),
+        rgba(v.$primary-yellow, 1)
+      );
+      top: 100px;
+      z-index: 1;
     }
 
     &::after {
       content: '';
       position: absolute;
-      width: 12px;
-      height: 12px;
-      background: v.$primary-yellow;
+      width: 16px;
+      height: 16px;
+      background: #121212;
+      border: 2px solid v.$primary-yellow;
       border-radius: 50%;
-      box-shadow: 0 0 10px v.$primary-yellow;
-      top: 46px;
+      top: 93px;
+      z-index: 2;
+      transition: all 0.3s ease;
     }
 
     &:nth-child(odd) {
       &::before {
-        right: -2rem;
-        width: 2rem;
+        right: -6rem;
+        background: linear-gradient(
+          90deg,
+          rgba(v.$primary-yellow, 1),
+          rgba(v.$primary-yellow, 0.5)
+        );
       }
       &::after {
-        right: -2rem;
+        right: -6rem;
+        transform: translateX(50%);
       }
     }
 
     &:nth-child(even) {
       &::before {
-        left: -2rem;
-        width: 2rem;
+        left: -6rem;
       }
       &::after {
-        left: -2rem;
+        left: -6rem;
+        transform: translateX(-50%);
       }
     }
 
     &:hover {
-      transform: translateY(-5px);
+      .projects__card-wrapper {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 
-      .projects__card-overlay {
-        opacity: 1;
+        &::before {
+          background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(v.$primary-yellow, 0.6),
+            transparent
+          );
+        }
       }
 
       &::after {
-        box-shadow: 0 0 20px v.$primary-yellow;
+        box-shadow: 0 0 15px rgba(v.$primary-yellow, 0.5);
+        background: v.$primary-yellow;
+      }
+
+      .projects__card-overlay {
+        opacity: 1;
       }
     }
 
@@ -101,7 +173,7 @@
       position: relative;
       width: 100%;
       height: 200px;
-      z-index: 1;
+      overflow: hidden;
 
       img {
         width: 100%;
@@ -121,8 +193,7 @@
       justify-content: center;
       align-items: center;
       opacity: 0;
-      transition: v.$transition-fast;
-      z-index: 1;
+      transition: all 0.3s ease;
     }
 
     &-links {
@@ -132,18 +203,17 @@
       a {
         color: v.$text-light;
         font-size: 1.5rem;
-        transition: v.$transition-fast;
+        transition: all 0.3s ease;
 
         &:hover {
           color: v.$primary-yellow;
+          transform: translateY(-3px);
         }
       }
     }
 
     &-content {
       padding: 1.5rem;
-      position: relative;
-      z-index: 1;
     }
 
     &-title {
@@ -182,6 +252,7 @@
     &__grid {
       grid-template-columns: 1fr;
       padding: 0 2rem 0 4rem;
+      gap: 4rem;
     }
 
     &__card {
@@ -193,6 +264,7 @@
         }
         &::after {
           left: -2rem;
+          transform: translateX(-50%);
         }
       }
     }
@@ -213,9 +285,28 @@
       padding: 0 1rem 0 3rem;
       gap: 2rem;
     }
+  }
+
+  @media (max-width: 576px) {
+    &::after {
+      left: 20px;
+    }
+
+    &__grid {
+      padding: 0 1rem 0 2.5rem;
+    }
 
     &__card {
-      margin-bottom: 1rem;
+      &:nth-child(odd),
+      &:nth-child(even) {
+        &::before {
+          left: -1.5rem;
+          width: 1.5rem;
+        }
+        &::after {
+          left: -1.5rem;
+        }
+      }
     }
   }
 }

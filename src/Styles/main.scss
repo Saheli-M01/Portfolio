@@ -3,6 +3,9 @@
 @use "./mixins" as *;
 @use "./components/navbar" as *;
 @use "./components/hero" as *;
+@use "./components/skills" as *;
+@use "./components/about" as *;
+@use "./components/project" as *;
 @import "bootstrap/dist/css/bootstrap.min.css";
 * {
   margin: 0;
