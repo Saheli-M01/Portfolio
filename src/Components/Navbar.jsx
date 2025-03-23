@@ -15,6 +15,23 @@ const CustomNavbar = () => {
     { href: '#contact', label: 'Contact' }
   ];
 
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    setIsOpen(false);
+    
+    const element = document.querySelector(targetId);
+    if (element) {
+      const headerOffset = 80; // Adjust this value based on your navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="navbar-wrapper">
       <Navbar expand="lg" className="custom-navbar">
@@ -38,7 +55,7 @@ const CustomNavbar = () => {
                   key={item.href}
                   href={item.href}
                   className="nav-link"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleScroll(e, item.href)}
                 >
                   {item.label}
                 </Nav.Link>

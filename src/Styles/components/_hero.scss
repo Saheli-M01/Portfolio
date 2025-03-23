@@ -7,13 +7,13 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-
+  padding: 5rem 7rem;
 
   &__content {
     max-width: 800px;
     margin: 0 auto;
     text-align: left;
-    padding: 3rem;
+   
 
     position: relative;
     z-index: 10;
@@ -78,40 +78,11 @@
     min-height: 400px;
   }
 
-  .social-links {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 2rem;
 
-    a {
-      color: v.$text-gray;
-      font-size: 1.5rem;
-      transition: v.$transition-fast;
-      position: relative;
-
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: v.$primary-yellow;
-        transition: v.$transition-fast;
-      }
-
-      &:hover {
-        color: v.$primary-yellow;        
-        &::after {
-          width: 100%;
-        }
-      }
-    }
-  }
 
   .profile-image {
-    width: 300px;
-    height: 300px;
+    width: 400px;
+    height:400px;
     margin: 0 auto;
     border-radius: 50%;
     background-color: v.$dark-bg;
@@ -163,7 +134,7 @@
         width: 150px;
         height: 150px;
         top: 40%;
-        right: 10%;
+        right: 5%;
       }
 
       &-3 {
@@ -176,7 +147,7 @@
       &-4 {
         width: 120px;
         height: 120px;
-        bottom: 30%;
+        bottom: 50%;
         right: 20%;
       }
     }

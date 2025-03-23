@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faLinkedin, faTwitter } from '@fortawesome/free-brands-svg-icons';
+
 import profileImage from '../assets/Saheli.jpg';
 import '../styles/components/_hero.scss';
 
@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="hero" id="section">
+    <div className="hero" id="home">
       <div className="hero__background">
         <div className="hero__grid"></div>
         <div className="hero__glow"></div>
@@ -56,7 +56,6 @@ const Hero = () => {
                 <motion.a
                   href="#projects"
                   className="btn btn-solid"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(58, 128, 246, 0.5)" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   View My Work
@@ -64,41 +63,12 @@ const Hero = () => {
                 <motion.a
                   href="#contact"
                   className="btn btn-outline"
-                  whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(58, 128, 246, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Contact Me
                 </motion.a>
               </motion.div>
-              <motion.div className="social-links" variants={itemVariants}>
-                <motion.a
-                  href="https://github.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1, color: "#3a80f6" }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-                </motion.a>
-                <motion.a
-                  href="https://linkedin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1, color: "#3a80f6" }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <FontAwesomeIcon icon={faLinkedin} />
-                </motion.a>
-                <motion.a
-                  href="https://twitter.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ y: -5, scale: 1.1, color: "#3a80f6" }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  <FontAwesomeIcon icon={faTwitter} />
-                </motion.a>
-              </motion.div>
+              
             </motion.div>
           </Col>
           <Col lg={6} className="hero__image">

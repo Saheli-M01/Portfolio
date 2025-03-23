@@ -35,7 +35,7 @@ const Project = () => {
   ];
 
   return (
-    <section className="projects">
+    <section id="projects" className="projects">
       <Motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
