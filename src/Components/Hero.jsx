@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import profileImage from '../assets/Saheli.jpg';
 import '../styles/components/_hero.scss';
@@ -61,14 +60,14 @@ const Hero = () => {
                   View My Work
                 </motion.a>
                 <motion.a
-                  href="#contact"
+                  href="/resume.pdf"
                   className="btn btn-outline"
                   whileTap={{ scale: 0.95 }}
+                  download
                 >
-                  Contact Me
+                  Resume
                 </motion.a>
               </motion.div>
-              
             </motion.div>
           </Col>
           <Col lg={6} className="hero__image">

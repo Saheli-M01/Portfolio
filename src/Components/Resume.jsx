@@ -126,7 +126,7 @@ const Resume = () => {
           <div className="text-center">
             <a href="/path-to-your-resume.pdf" className="resume__download-btn" download>
               <FontAwesomeIcon icon={faDownload} className="icon" />
-              Download Resume
+               Resume
             </a>
           </div>
         </div>
