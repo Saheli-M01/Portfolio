@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import logo from '../assets/SM.png';
 
-import '../styles/components/_navbar.scss';
+import '../Styles/components/_navbar.scss';
 
 const CustomNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -4,7 +4,7 @@ import { motion as Motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import '../styles/components/_contact.scss';
+import '../Styles/components/_contact.scss';
 
 const Contact = () => {
   const contactInfo = [

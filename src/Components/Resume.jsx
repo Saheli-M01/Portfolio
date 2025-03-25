@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap';
 import { motion as Motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
-import '../styles/components/_resume.scss';
+import '../Styles/components/_resume.scss';
 
 const Resume = () => {
   const experiences = [

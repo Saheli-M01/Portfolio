@@ -6,7 +6,7 @@ import {
   faCode,
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
-import "../styles/components/_about.scss";
+import "../Styles/components/_about.scss";
 
 const About = () => {
   const features = [

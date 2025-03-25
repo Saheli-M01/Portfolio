@@ -4,7 +4,7 @@ import { motion as Motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import '../styles/components/_project.scss';
+import '../Styles/components/_project.scss';
 
 const Project = () => {
   const projects = [

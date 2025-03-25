@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import '../styles/components/_footer.scss';
+import '../Styles/components/_footer.scss';
 
 const Footer = () => {
   const socialLinks = [

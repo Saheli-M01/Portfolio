@@ -4,7 +4,7 @@ import { motion as Motion} from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHtml5, faCss3Alt, faJs, faReact, faNodeJs, faGitAlt, faFigma, faPython, faJava } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faServer, faCode,faC } from '@fortawesome/free-solid-svg-icons';
-import '../styles/components/_skills.scss';
+import '../Styles/components/_skills.scss';
 
 const Skills = () => {
   const skills = [

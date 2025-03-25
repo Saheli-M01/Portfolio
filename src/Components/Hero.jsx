@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
 
 import profileImage from '../assets/Saheli.jpg';
-import '../styles/components/_hero.scss';
+import '../Styles/components/_hero.scss';
 
 const Hero = () => {
   const containerVariants = {
