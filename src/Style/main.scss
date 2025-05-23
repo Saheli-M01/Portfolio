@@ -1,0 +1,53 @@
+@use "./_variables.scss" as *;
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: $black;
+    scroll-behavior: smooth;
+}
+.app-container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+    background-color: $black; /* Use black background from variables */
+    color: $text-color;
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Take up remaining space */
+    padding: 20px; /* Add some padding around the main content */
+    overflow-y: auto; /* Add scrolling if content overflows */
+    margin-left: 250px; /* Adjust this based on your sidebar's max-width */
+    transition: margin-left 0.2s cubic-bezier(0.4,0,0.2,1); /* Smooth transition for collapse/expand */
+    scroll-behavior: smooth;
+  }
+  
+  .sidebar.collapsed + .main-content {
+      margin-left: 60px; /* Adjust this to sidebar's min-width when collapsed */
+  }
+
+// For WebKit browsers (Chrome, Edge, Safari)
+.main-content, body, html {
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #444 #222; /* Firefox: thumb color, track color */
+}
+
+// Webkit browsers
+.main-content::-webkit-scrollbar,
+body::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  width: 8px;
+  background: #222; // Track color
+}
+
+.main-content::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb {
+  background: #444; // Thumb color
+  border-radius: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}

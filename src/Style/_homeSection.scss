@@ -1,0 +1,62 @@
+@use "./variables" as *;
+
+.home-section {
+  display: flex;
+  flex-direction: column;
+  height:70vh;
+  width:70%;
+  margin: auto;
+  .header {
+    font-family: $font;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    .icon{
+      font-size: 0.7rem;
+    }
+    span {
+      font-size: 0.9rem;
+    }
+  }
+
+  .home-content {
+    background-color: $dark-gray; /* Using dark gray similar to sidebar */
+    color: $text-color;
+    border-radius: 8px; /* Rounded corners */
+    padding: 1rem 2rem;
+    display: flex;
+    gap: 20px; /* Space between icon and content */
+    justify-content: center;
+    align-items: center; /* Vertically align items in the center */
+
+    .left {
+      border-right: 2px solid $light-gray;
+      padding: 20px;
+    }
+    .home-section-icon {
+      flex-shrink: 0; /* Prevent icon from shrinking */
+      font-size: 3rem; /* Adjust icon size */
+      color: #ccc; /* Example icon color */
+      width: 220px;
+      .rounded-circle {
+        width: 100%;
+      }
+    }
+
+    .home-section-content {
+      h3 {
+        margin-top: 0;
+        margin-bottom: 8px;
+        /* Heading color */
+        font-size: 2.5rem;
+        font-family: $font;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: 1rem;
+        line-height: 1.5;
+        font-family: $font;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #191919;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  background-color: #191919; /* Use black background from variables */
+  color: #9d9d9d;
+}
+
+.main-content {
+  flex-grow: 1; /* Take up remaining space */
+  padding: 20px; /* Add some padding around the main content */
+  overflow-y: auto; /* Add scrolling if content overflows */
+  margin-left: 250px; /* Adjust this based on your sidebar's max-width */
+  transition: margin-left 0.2s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth transition for collapse/expand */
+}
+
+.sidebar.collapsed + .main-content {
+  margin-left: 60px; /* Adjust this to sidebar's min-width when collapsed */
+}/*# sourceMappingURL=main.css.map */
