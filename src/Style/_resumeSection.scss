@@ -1,0 +1,39 @@
+@use "./variables" as *;
+
+.resume-section {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: $dark-gray;
+  border-radius: 12px;
+  color: $text-color;
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-family: $font;
+  }
+  .resume-preview {
+    margin-bottom: 1.5rem;
+    .resume-image {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+      display: block;
+    }
+  }
+  .resume-download-btn {
+    display: inline-block;
+    background: $dark-gray;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: $font;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    &:hover {
+      background: darken($dark-gray, 10%);
+    }
+  }
+} 

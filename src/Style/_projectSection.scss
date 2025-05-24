@@ -1,0 +1,27 @@
+@use "./variables" as *;
+
+.project-section {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: $dark-gray;
+  border-radius: 12px;
+  color: $text-color;
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+    font-family: $font;
+  }
+  .projects-list {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    .project-item {
+      background: $light-gray;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: $font;
+      font-weight: 500;
+    }
+  }
+} 
